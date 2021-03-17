@@ -1,0 +1,192 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "einstein bot",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
+                {
+                    "name": "CreateLead",
+                    "slots": [
+                        {
+                            "name": "LeadCreate",
+                            "type": "LeadCreate"
+                        }
+                    ],
+                    "samples": [
+                        "how to {LeadCreate}",
+                        "need to {LeadCreate}",
+                        "for {LeadCreate}",
+                        "please help me in {LeadCreate}",
+                        "i want to {LeadCreate}"
+                    ]
+                },
+                {
+                    "name": "NameIntent",
+                    "slots": [
+                        {
+                            "name": "FirstName",
+                            "type": "AMAZON.FirstName"
+                        }
+                    ],
+                    "samples": [
+                        "{FirstName} here",
+                        "I am {FirstName}",
+                        "{FirstName} this side",
+                        "My name is {FirstName}"
+                    ]
+                },
+                {
+                    "name": "LoanAmountIntent",
+                    "slots": [
+                        {
+                            "name": "LoanAmountSlot",
+                            "type": "AMAZON.NUMBER"
+                        }
+                    ],
+                    "samples": [
+                        "loan amount is {LoanAmountSlot}",
+                        "i need a loan of {LoanAmountSlot} dollars"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "LeadCreate",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "create lead",
+                                "synonyms": [
+                                    "create a lead",
+                                    "lead creation",
+                                    "creating a lead"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "CreateLead",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.1021582128819"
+                    },
+                    "slots": [
+                        {
+                            "name": "LeadCreate",
+                            "type": "LeadCreate",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1275381058032.682750559020"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "NameIntent",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.1396131295639"
+                    },
+                    "slots": [
+                        {
+                            "name": "FirstName",
+                            "type": "AMAZON.FirstName",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        }
+                    ]
+                },
+                {
+                    "name": "LoanAmountIntent",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.1126704922274"
+                    },
+                    "slots": [
+                        {
+                            "name": "LoanAmountSlot",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        }
+                    ]
+                }
+            ],
+            "delegationStrategy": "ALWAYS"
+        },
+        "prompts": [
+            {
+                "id": "Confirm.Intent.271241618474",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Hi I am einstein bot"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.1021582128819",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "ok let me know your first name"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.1396131295639",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Please tell me the loan amount"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.1126704922274",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Ok creating lead"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1275381058032.682750559020",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "please tell me how can i help you"
+                    }
+                ]
+            }
+        ]
+    }
+}
